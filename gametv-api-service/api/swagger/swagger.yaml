@@ -1,0 +1,195 @@
+swagger: "2.0"
+info:
+  version: "0.1.0"
+  title: GameTV service
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /api/v1
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /news:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: news-controller
+    get:
+      description: Returns information about latest news in cybersport
+      # used as the method name of the controller
+      operationId: news
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/NewsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /matches:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: matches-controller
+    get:
+      description: Returns information about live results in cybersport
+      # used as the method name of the controller
+      operationId: matches
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/MatchesResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /results:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: results-controller
+    get:
+      description: Returns information about latest results in cybersport
+      # used as the method name of the controller
+      operationId: results
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/ResultsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /top:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: top-controller
+    get:
+      description: Returns information about top players and teams in cybersport
+      # used as the method name of the controller
+      operationId: top
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/TopResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  NewsResponse:
+      type: array
+      items:
+        $ref: "#/definitions/News"
+
+  MatchesResponse:
+      type: array
+      items:
+        $ref: "#/definitions/Matches"
+  
+  ResultsResponse:
+      type: array
+      items:
+        $ref: "#/definitions/Results"
+  
+  TopResponse:
+      type: array
+      items:
+        $ref: "#/definitions/Top"
+  
+  News:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      date:
+        type: string
+
+  Top:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      nickname:
+        type: string
+      teamname:
+        type: string
+
+  Matches:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      location:
+        type: string
+      temperature:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+
+  Results:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      location:
+        type: string
+      temperature:
+        type: string
+        
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
