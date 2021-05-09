@@ -4,7 +4,7 @@ import * as Api from 'typescript-fetch-api';
 
 const api = new Api.DefaultApi()
 
-class WeeklyForecasts extends React.Component {
+class Top extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,26 +15,25 @@ class WeeklyForecasts extends React.Component {
 
 
   async handleReload(event) {
-    const response = await api.weeklyforecasts({ date: '' });
+    const response = await api.top({ date: '' });
     this.setState({ events: response });
   }
 
 
   render() {
     return <div>
-      <h2>You're on /weeklyforecasts</h2>
+      <h2>You're on /top</h2>
       <button className="btn" onClick={this.handleReload}>Reload</button>
       {this.state.events.map(
           (event) =>
-          <div className='box'>
-            <h3>Temperature for {event.date}</h3>
-            <h4>{event.temperature}&deg;</h4>
-            <p>{event.description}</p>
-            <p><span>{event.location}</span></p>
+          <div>
+            <p>{event.id}</p>
+            <p>{event.nickname}</p>
+            <p>{event.teamname}</p>
           </div>
       )}
     </div>
   }
 }
 
-export default WeeklyForecasts;
+export default Top;

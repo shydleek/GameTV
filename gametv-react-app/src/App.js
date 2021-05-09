@@ -3,7 +3,7 @@ import React from 'react';
 //import Matches from './components/Matches.js';
 import News from './components/News.js';
 //import Results from './components/Results.js';
-//import Top from './components/Top.js';
+import Top from './components/Top.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +26,9 @@ function App() {
               <Link to="/news">News</Link>
             </li>
             <li>
+              <Link to="/top">Top</Link>
+            </li>
+            <li>
               <Link to="/about">About</Link>
             </li>
           </ul>
@@ -44,6 +47,10 @@ function App() {
 
             <Route path="/news">
               <News />
+            </Route>
+            
+            <Route path="/top">
+              <Top />
             </Route>
 
             <Route path="/">
