@@ -4,9 +4,9 @@ info:
   title: GameTV service
 # during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths 
+# basePath prefixes all resource paths
 basePath: /api/v1
-# 
+#
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -118,25 +118,25 @@ paths:
 # complex objects have schema definitions
 definitions:
   NewsResponse:
-      type: array
-      items:
-        $ref: "#/definitions/News"
+    type: array
+    items:
+      $ref: "#/definitions/News"
 
   MatchesResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Matches"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Matches"
+
   ResultsResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Results"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Results"
+
   TopResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Top"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Top"
+
   News:
     required:
       - id
@@ -167,13 +167,13 @@ definitions:
     properties:
       id:
         type: string
-      location:
+      teamname1:
         type: string
-      temperature:
+      teamname2:
         type: string
-      date:
+      score:
         type: string
-      description:
+      tournament:
         type: string
 
   Results:
@@ -186,7 +186,7 @@ definitions:
         type: string
       temperature:
         type: string
-        
+
   ErrorResponse:
     required:
       - message
