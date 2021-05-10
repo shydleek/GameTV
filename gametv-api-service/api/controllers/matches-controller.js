@@ -10,7 +10,12 @@
 
   It is a good idea to list the modules that your application depends on in the package.json in the project root
  */
-var faker = require('faker');
+  var util = require('util');
+  const jsf = require('json-schema-faker');
+  const chance = require('chance')
+  const faker = require('faker')
+  jsf.extend('chance', () => new chance.Chance());
+  jsf.extend('faker', () => faker);
 /*
  Once you 'require' a module you can reference the things that it exports.  These are defined in module.exports.
 
@@ -26,6 +31,91 @@ var faker = require('faker');
   module.exports = {
     matches: getMatches
   };
+
+
+  var schema = {
+    "type": "array",
+    "minItems": 5,
+    "maxItems": 7,
+    "items": {
+      "type": "object",
+      "required": [
+        "id", "team1", "team2", "score", "tournament", "players1", "players2"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "faker": "random.number"
+        },
+        "team1": {
+          "type": "string",
+          "faker": "company.companyName"
+        },
+        "team2": {
+          "type": "string",
+          "faker": "company.companyName"
+        },
+        "score": {
+          "type": "string",
+          "faker": "random.number"
+        },
+        "tournament": {
+          "type": "string",
+          "faker": "company.companyName"
+        },
+        "players1": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id", "name", "score"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "faker": "random.number"
+              },
+              "name": {
+                "type": "string",
+                "faker": "name.firstName"
+              },
+              "score": {
+                "type": "string",
+                "faker": "random.number"
+              }
+            },
+          },
+        },
+        "players2": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id", "name", "score"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "faker": "random.number"
+              },
+              "name": {
+                "type": "string",
+                "faker": "name.firstName"
+              },
+              "score": {
+                "type": "string",
+                "faker": "random.number"
+              }
+            },
+          },
+        }
+      }
+    }
+  }
   /*
     Functions in a127 controllers used for operations should take two parameters:
     Param 1: a handle to the request object
@@ -36,7 +126,9 @@ var faker = require('faker');
     var date = req.swagger.params.date.value || '2020-04-20';
   
     // this sends back a JSON response which is a single string
-    res.json([
+    jsf.resolve(schema).then(sample => res.json(sample));
+
+    /*res.json([
       { 
         "id": '' + faker.datatype.number(),
         "teamname1": '' + faker.company.companyName(),
@@ -65,5 +157,5 @@ var faker = require('faker');
         "score": '' + faker.random.number(),
         "tournament": '' + faker.company.companyName(),
       },
-    ]);
+    ]);*/
   }

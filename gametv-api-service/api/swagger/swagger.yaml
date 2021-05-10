@@ -127,6 +127,29 @@ definitions:
     items:
       $ref: "#/definitions/Matches"
 
+  Matches:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      team1:
+        type: string
+      team2:
+        type: string
+      score:
+        type: string
+      tournament:
+        type: string
+      players1:
+        type: array
+        items:
+          $ref: "#/definitions/Player1"
+      players2:
+        type: array
+        items:
+          $ref: "#/definitions/Player2"
+
   ResultsResponse:
     type: array
     items:
@@ -161,19 +184,26 @@ definitions:
       teamname:
         type: string
 
-  Matches:
+  Player1:
     required:
       - id
     properties:
       id:
         type: string
-      teamname1:
-        type: string
-      teamname2:
+      name:
         type: string
       score:
         type: string
-      tournament:
+
+  Player2:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      score:
         type: string
 
   Results:
