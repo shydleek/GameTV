@@ -247,10 +247,61 @@
           "id" : {
             "type" : "string"
           },
-          "location" : {
+          "team1" : {
             "type" : "string"
           },
-          "temperature" : {
+          "team2" : {
+            "type" : "string"
+          },
+          "players1" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Player1"
+            }
+          },
+          "players2" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Player2"
+            }
+          },
+          "user" : {
+            "type" : "string"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "tournament" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Player1" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "score" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Player2" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "score" : {
             "type" : "string"
           }
         }

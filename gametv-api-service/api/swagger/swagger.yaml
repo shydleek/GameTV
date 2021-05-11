@@ -176,12 +176,12 @@ definitions:
       description:
         type: string
 
-   Results:
+  Results:
     required:
       - id
     properties:
       id:
-         type: string
+        type: string
       team1:
         type: string
       team2:
@@ -189,7 +189,7 @@ definitions:
       players1:
         type: array
         items:
-         $ref: "#/definitions/Player1"
+          $ref: "#/definitions/Player1"
       players2:
         type: array
         items:
