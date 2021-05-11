@@ -1,10 +1,11 @@
 import '../index.css';
 import React from 'react';
 import * as Api from 'typescript-fetch-api';
+//import { withRouter } from "react-router";
 
 const api = new Api.DefaultApi()
 
-class MapWeatherForecasts extends React.Component {
+class Schedule extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,24 +16,25 @@ class MapWeatherForecasts extends React.Component {
 
 
   async handleReload(event) {
-    const response = await api.mapweatherforecasts({ date: '' });
+    const response = await api.matches({ date: '' });
     this.setState({ events: response });
   }
 
 
   render() {
     return <div>
-      <h2>You're on /mapweatherforecasts</h2>
+      <h2>You're on matches(schedule)</h2>
       <button className="btn" onClick={this.handleReload}>Reload</button>
       {this.state.events.map(
           (event) =>
           <div>
-            <h3>{event.temperature}&deg;</h3>
-            <p><span>{event.location}</span></p>
+            <h3>{event.team1} - {event.team2}</h3>
+            <p><span>Score: {event.score}</span></p>
+            <p><span>Tornament: {event.tournament}</span></p>
           </div>
       )}
     </div>
   }
 }
 
-export default MapWeatherForecasts;
+export default Schedule;

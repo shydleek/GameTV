@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-//import Matches from './components/Matches.js';
+import Schedule from './components/Schedule';
+import Statistics from './components/Statistics';
 import News from './components/News.js';
 //import Results from './components/Results.js';
 import Top from './components/Top.js';
@@ -29,7 +30,7 @@ function App() {
               <Link to="/top">Top</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/matches">Matches</Link>
             </li>
           </ul>
         </nav>
@@ -41,8 +42,9 @@ function App() {
         <section> 
           <Switch>
 
-            <Route path="/about">
-              <About />
+            <Route path="/matches">
+              <Schedule />
+              <Statistics />
             </Route>
 
             <Route path="/news">

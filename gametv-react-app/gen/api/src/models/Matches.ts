@@ -13,6 +13,17 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    Player1,
+    Player1FromJSON,
+    Player1FromJSONTyped,
+    Player1ToJSON,
+    Player2,
+    Player2FromJSON,
+    Player2FromJSONTyped,
+    Player2ToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -30,25 +41,37 @@ export interface Matches {
      * @type {string}
      * @memberof Matches
      */
-    location?: string;
+    team1?: string;
     /**
      * 
      * @type {string}
      * @memberof Matches
      */
-    temperature?: string;
+    team2?: string;
     /**
      * 
      * @type {string}
      * @memberof Matches
      */
-    date?: string;
+    score?: string;
     /**
      * 
      * @type {string}
      * @memberof Matches
      */
-    description?: string;
+    tournament?: string;
+    /**
+     * 
+     * @type {Array<Player1>}
+     * @memberof Matches
+     */
+    players1?: Array<Player1>;
+    /**
+     * 
+     * @type {Array<Player2>}
+     * @memberof Matches
+     */
+    players2?: Array<Player2>;
 }
 
 export function MatchesFromJSON(json: any): Matches {
@@ -62,10 +85,12 @@ export function MatchesFromJSONTyped(json: any, ignoreDiscriminator: boolean): M
     return {
         
         'id': json['id'],
-        'location': !exists(json, 'location') ? undefined : json['location'],
-        'temperature': !exists(json, 'temperature') ? undefined : json['temperature'],
-        'date': !exists(json, 'date') ? undefined : json['date'],
-        'description': !exists(json, 'description') ? undefined : json['description'],
+        'team1': !exists(json, 'team1') ? undefined : json['team1'],
+        'team2': !exists(json, 'team2') ? undefined : json['team2'],
+        'score': !exists(json, 'score') ? undefined : json['score'],
+        'tournament': !exists(json, 'tournament') ? undefined : json['tournament'],
+        'players1': !exists(json, 'players1') ? undefined : ((json['players1'] as Array<any>).map(Player1FromJSON)),
+        'players2': !exists(json, 'players2') ? undefined : ((json['players2'] as Array<any>).map(Player2FromJSON)),
     };
 }
 
@@ -79,10 +104,12 @@ export function MatchesToJSON(value?: Matches | null): any {
     return {
         
         'id': value.id,
-        'location': value.location,
-        'temperature': value.temperature,
-        'date': value.date,
-        'description': value.description,
+        'team1': value.team1,
+        'team2': value.team2,
+        'score': value.score,
+        'tournament': value.tournament,
+        'players1': value.players1 === undefined ? undefined : ((value.players1 as Array<any>).map(Player1ToJSON)),
+        'players2': value.players2 === undefined ? undefined : ((value.players2 as Array<any>).map(Player2ToJSON)),
     };
 }
 

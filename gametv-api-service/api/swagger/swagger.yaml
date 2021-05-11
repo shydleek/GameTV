@@ -4,9 +4,9 @@ info:
   title: GameTV service
 # during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths 
+# basePath prefixes all resource paths
 basePath: /api/v1
-# 
+#
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -118,25 +118,48 @@ paths:
 # complex objects have schema definitions
 definitions:
   NewsResponse:
-      type: array
-      items:
-        $ref: "#/definitions/News"
+    type: array
+    items:
+      $ref: "#/definitions/News"
 
   MatchesResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Matches"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Matches"
+
+  Matches:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      team1:
+        type: string
+      team2:
+        type: string
+      score:
+        type: string
+      tournament:
+        type: string
+      players1:
+        type: array
+        items:
+          $ref: "#/definitions/Player1"
+      players2:
+        type: array
+        items:
+          $ref: "#/definitions/Player2"
+
   ResultsResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Results"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Results"
+
   TopResponse:
-      type: array
-      items:
-        $ref: "#/definitions/Top"
-  
+    type: array
+    items:
+      $ref: "#/definitions/Top"
+
   News:
     required:
       - id
@@ -161,19 +184,26 @@ definitions:
       teamname:
         type: string
 
-  Matches:
+  Player1:
     required:
       - id
     properties:
       id:
         type: string
-      location:
+      name:
         type: string
-      temperature:
+      score:
         type: string
-      date:
+
+  Player2:
+    required:
+      - id
+    properties:
+      id:
         type: string
-      description:
+      name:
+        type: string
+      score:
         type: string
 
   Results:
@@ -186,7 +216,7 @@ definitions:
         type: string
       temperature:
         type: string
-        
+
   ErrorResponse:
     required:
       - message
