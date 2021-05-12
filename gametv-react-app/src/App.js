@@ -3,7 +3,8 @@ import React from 'react';
 import Schedule from './components/Schedule';
 import Statistics from './components/Statistics';
 import News from './components/News.js';
-//import Results from './components/Results.js';
+import LastMatches from './components/LastMatches.js';
+import Forum from './components/Forum.js';
 import Top from './components/Top.js';
 import {
   BrowserRouter as Router,
@@ -22,6 +23,9 @@ function App() {
           <ul>
             <li>
               <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/results">Results</Link>
             </li>
             <li>
               <Link to="/news">News</Link>
@@ -55,6 +59,12 @@ function App() {
               <Top />
             </Route>
 
+            <Route path="/results">
+              <LastMatches />
+              <Forum />
+              <Statistics />
+            </Route>
+            
             <Route path="/">
               <h1>Home</h1>
               Welcome to our service. Please explore <Link to="/places">places to visit</Link> and <Link to="/weeklyforecasts">weather forecast</Link> for the following week<br/>

@@ -4,7 +4,7 @@ import * as Api from 'typescript-fetch-api';
 
 const api = new Api.DefaultApi()
 
-class Places extends React.Component {
+class Forum extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,29 +15,24 @@ class Places extends React.Component {
 
 
   async handleReload(event) {
-    const response = await api.places({ date: '' });
+    const response = await api.results({ date: '' });
     this.setState({ events: response });
   }
 
 
   render() {
     return <div>
-      <h2>You're on /places</h2>
+      <h2>You're on /results</h2>
       <button className="btn" onClick={this.handleReload}>Reload</button>
       {this.state.events.map(
           (event) =>
-          <div className='inner'>
-            <div className='photo'>
-              <p className='text'>Photo of place</p>
-            </div>
-            <p>{event.description}</p>
-            <p><span>{event.location}</span></p>
-            <h3>{event.name}</h3>
-            <p><i>{event.date}</i></p>
+          <div>
+            <h2>{event.user}</h2><br/>
+            <p>{event.comment}</p><br/>
           </div>
       )}
     </div>
   }
 }
 
-export default Places;
+export default Forum;

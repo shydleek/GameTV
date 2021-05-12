@@ -212,10 +212,46 @@ definitions:
     properties:
       id:
         type: string
-      location:
+      team1:
         type: string
-      temperature:
+      team2:
         type: string
+      players1:
+        type: array
+        items:
+          $ref: "#/definitions/Player1"
+      players2:
+        type: array
+        items:
+          $ref: "#/definitions/Player2"
+      user:
+        type: string
+      comment:
+        type: string
+      tournament:
+        type: string
+        
+  Player1:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      score:
+        type: string
+        
+  Player2:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      score:
+        type: string 
 
   ErrorResponse:
     required:

@@ -13,6 +13,17 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    Player1,
+    Player1FromJSON,
+    Player1FromJSONTyped,
+    Player1ToJSON,
+    Player2,
+    Player2FromJSON,
+    Player2FromJSONTyped,
+    Player2ToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -30,13 +41,43 @@ export interface Results {
      * @type {string}
      * @memberof Results
      */
-    location?: string;
+    team1?: string;
     /**
      * 
      * @type {string}
      * @memberof Results
      */
-    temperature?: string;
+    team2?: string;
+    /**
+     * 
+     * @type {Array<Player1>}
+     * @memberof Results
+     */
+    players1?: Array<Player1>;
+    /**
+     * 
+     * @type {Array<Player2>}
+     * @memberof Results
+     */
+    players2?: Array<Player2>;
+    /**
+     * 
+     * @type {string}
+     * @memberof Results
+     */
+    user?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Results
+     */
+    comment?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Results
+     */
+    tournament?: string;
 }
 
 export function ResultsFromJSON(json: any): Results {
@@ -50,8 +91,13 @@ export function ResultsFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
     return {
         
         'id': json['id'],
-        'location': !exists(json, 'location') ? undefined : json['location'],
-        'temperature': !exists(json, 'temperature') ? undefined : json['temperature'],
+        'team1': !exists(json, 'team1') ? undefined : json['team1'],
+        'team2': !exists(json, 'team2') ? undefined : json['team2'],
+        'players1': !exists(json, 'players1') ? undefined : ((json['players1'] as Array<any>).map(Player1FromJSON)),
+        'players2': !exists(json, 'players2') ? undefined : ((json['players2'] as Array<any>).map(Player2FromJSON)),
+        'user': !exists(json, 'user') ? undefined : json['user'],
+        'comment': !exists(json, 'comment') ? undefined : json['comment'],
+        'tournament': !exists(json, 'tournament') ? undefined : json['tournament'],
     };
 }
 
@@ -65,8 +111,13 @@ export function ResultsToJSON(value?: Results | null): any {
     return {
         
         'id': value.id,
-        'location': value.location,
-        'temperature': value.temperature,
+        'team1': value.team1,
+        'team2': value.team2,
+        'players1': value.players1 === undefined ? undefined : ((value.players1 as Array<any>).map(Player1ToJSON)),
+        'players2': value.players2 === undefined ? undefined : ((value.players2 as Array<any>).map(Player2ToJSON)),
+        'user': value.user,
+        'comment': value.comment,
+        'tournament': value.tournament,
     };
 }
 

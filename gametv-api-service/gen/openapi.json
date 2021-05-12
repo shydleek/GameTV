@@ -252,6 +252,42 @@
           }
         }
       },
+      "Results" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "team1" : {
+            "type" : "string"
+          },
+          "team2" : {
+            "type" : "string"
+          },
+          "players1" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Player1"
+            }
+          },
+          "players2" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Player2"
+            }
+          },
+          "user" : {
+            "type" : "string"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "tournament" : {
+            "type" : "string"
+          }
+        }
+      },
       "Player1" : {
         "required" : [ "id" ],
         "type" : "object",
@@ -278,21 +314,6 @@
             "type" : "string"
           },
           "score" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Results" : {
-        "required" : [ "id" ],
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          },
-          "location" : {
-            "type" : "string"
-          },
-          "temperature" : {
             "type" : "string"
           }
         }
