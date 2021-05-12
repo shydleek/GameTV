@@ -26,4 +26,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths['/results']) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/results?date=2021-05-09');
   }
+  if (swaggerExpress.runner.swagger.paths['/matches']) {
+    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/matches?date=2021-05-09');
+  }
 });
