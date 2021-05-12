@@ -252,6 +252,36 @@
           }
         }
       },
+      "Player1" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "score" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Player2" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "score" : {
+            "type" : "string"
+          }
+        }
+      },
       "Results" : {
         "required" : [ "id" ],
         "type" : "object",
@@ -284,36 +314,6 @@
             "type" : "string"
           },
           "tournament" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Player1" : {
-        "required" : [ "id" ],
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "score" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Player2" : {
-        "required" : [ "id" ],
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "score" : {
             "type" : "string"
           }
         }

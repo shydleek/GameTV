@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .gitignore
 .npmignore
 .openapi-generator-ignore
@@ -17,23 +16,3 @@ src/models/Top.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json
-=======
-.gitignore
-.npmignore
-.openapi-generator-ignore
-README.md
-package.json
-src/apis/DefaultApi.ts
-src/apis/index.ts
-src/index.ts
-src/models/ErrorResponse.ts
-src/models/Matches.ts
-src/models/News.ts
-src/models/Player1.ts
-src/models/Player2.ts
-src/models/Results.ts
-src/models/Top.ts
-src/models/index.ts
-src/runtime.ts
-tsconfig.json
->>>>>>> master

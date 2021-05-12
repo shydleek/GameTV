@@ -230,28 +230,6 @@ definitions:
         type: string
       tournament:
         type: string
-        
-  Player1:
-    required:
-      - id
-    properties:
-      id:
-        type: string
-      name:
-        type: string
-      score:
-        type: string
-        
-  Player2:
-    required:
-      - id
-    properties:
-      id:
-        type: string
-      name:
-        type: string
-      score:
-        type: string 
 
   ErrorResponse:
     required:
