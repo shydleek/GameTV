@@ -1,4 +1,4 @@
-import '../index.css';
+import '../App.css';
 import React from 'react';
 import * as Api from 'typescript-fetch-api';
 
@@ -8,11 +8,14 @@ class News extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: [] };
+
+    this.state = {
+      events: []
+    };
 
     this.handleReload = this.handleReload.bind(this);
+    this.handleReload();
   }
-
 
   async handleReload(event) {
     const response = await api.news({ date: '' });
@@ -21,19 +24,23 @@ class News extends React.Component {
 
 
   render() {
-    return <div>
-      <h2>You're on /news</h2>
-      <button className="btn" onClick={this.handleReload}>Reload</button>
-      {this.state.events.map(
-          (event) =>
-          <div>
-            <h3>{event.id}</h3><br/>
-            <h3>{event.name}</h3><br/>
-            <h3>{event.description}</h3><br/>
-            <h3>{event.date}</h3>
+    return <section className="main">
+      <div className="container">
+        <div className="main__inner">
+          {this.state.events.map(
+              (event) =>
+              <div className="main__news">
+                <h2 className="main__title">
+                    <a href="#" className="main__title-link">{event.name}</a>   
+                </h2>
+                <p className="main__text">
+                    <a href="#" className="main__text-link">{event.description}</a> 
+                </p>
+              </div>
+          )}
           </div>
-      )}
-    </div>
+        </div>
+    </section>
   }
 }
 
