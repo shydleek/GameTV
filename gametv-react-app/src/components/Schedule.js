@@ -9,11 +9,14 @@ class Schedule extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: [] };
+
+    this.state = {
+      events: []
+    };
 
     this.handleReload = this.handleReload.bind(this);
+    this.handleReload();
   }
-
 
   async handleReload(event) {
     const response = await api.matches({ date: '' });
@@ -24,7 +27,6 @@ class Schedule extends React.Component {
   render() {
     return <div>
       <h2>You're on matches(schedule)</h2>
-      <button className="btn" onClick={this.handleReload}>Reload</button>
       {this.state.events.map(
           (event) =>
           <div>

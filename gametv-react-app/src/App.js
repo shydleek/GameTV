@@ -1,4 +1,5 @@
 import './App.css';
+import './reset.css';
 import React from 'react';
 import Schedule from './components/Schedule';
 import Statistics from './components/Statistics';
@@ -18,27 +19,31 @@ function App() {
   return (
 
 <Router>
-    <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+  <header className="header">
+    <div className="container">
+      <div className="header__inner">
+        <nav className="header__nav">
+          <ul className="header__list">
+            <li className="header__item">
+              <Link to="/news" className="header__item-link">News</Link>
             </li>
-            <li>
-              <Link to="/results">Results</Link>
+            <li className="header__item">
+              <Link to="/matches" className="header__item-link">Matches</Link>
             </li>
-            <li>
-              <Link to="/news">News</Link>
+            <li className="header__item">
+              <Link to="/results" className="header__item-link">Results</Link>
             </li>
-            <li>
-              <Link to="/top">Top</Link>
+            <li className="header__item">
+              <Link to="/top" className="header__item-link">Top</Link>
             </li>
-            <li>
-              <Link to="/matches">Matches</Link>
+            <li className="header__item">
+              <Link to="/signin" className="header__item-link">Sing In</Link>
             </li>
           </ul>
         </nav>
-
+      </div>
+    </div>
+  </header>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
       <div className="App">
@@ -46,17 +51,13 @@ function App() {
         <section> 
           <Switch>
 
-            <Route path="/matches">
-              <Schedule />
-              <Statistics />
-            </Route>
-
             <Route path="/news">
               <News />
             </Route>
-            
-            <Route path="/top">
-              <Top />
+
+            <Route path="/matches">
+              <Schedule />
+              <Statistics />
             </Route>
 
             <Route path="/results">
@@ -65,14 +66,19 @@ function App() {
               <Statistics />
             </Route>
             
-            <Route path="/">
-              <h1>Home</h1>
-              Welcome to our service. Please explore <Link to="/places">places to visit</Link> and <Link to="/weeklyforecasts">weather forecast</Link> for the following week<br/>
-              Also you can visit <Link to="/places">map of weather forecast</Link> <br/>
-              Or you can learn information <Link to="/about">about us</Link>!
+            <Route path="/top">
+              <Top />
             </Route>
 
-            <Route path="*">
+            <Route path="/singin">
+              <SignIn />
+            </Route>
+
+            <Route path="/">
+              <News />
+            </Route>
+
+            <Route path="/*">
               <NoMatch />
             </Route>
             
@@ -81,8 +87,8 @@ function App() {
 
         </section>
       </div>
-    </div>
-    </Router>
+</Router>
+
   );
 }
 function NoMatch() {
@@ -97,13 +103,13 @@ function NoMatch() {
   );
 }
 
-function About() {
+function SignIn() {
+
   return (
     <div>
-      <h2>
-        About us
-      </h2>
-      <p>Here is the description of the service and necessary terms.</p>
+      <h3>
+        Empty. Sorry :(
+      </h3>
     </div>
   );
 }

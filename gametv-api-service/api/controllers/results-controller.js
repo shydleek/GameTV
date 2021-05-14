@@ -48,7 +48,7 @@
           "properties": {
             "id": {
               "type": "string",
-              "faker": "random.number"
+              "faker": "datatype.number"
             },
             "team1": {
               "type": "string",
@@ -82,7 +82,7 @@
                 "properties": {
                   "id": {
                     "type": "string",
-                    "faker": "random.number"
+                    "faker": "datatype.number"
                   },
                   "name": {
                     "type": "string",
@@ -90,7 +90,7 @@
                   },
                   "score": {
                     "type": "string",
-                    "faker": "random.number"
+                    "faker": "datatype.number"
                   }
                 },
               },
@@ -107,7 +107,7 @@
                 "properties": {
                   "id": {
                     "type": "string",
-                    "faker": "random.number"
+                    "faker": "datatype.number"
                   },
                   "name": {
                     "type": "string",
@@ -115,7 +115,7 @@
                   },
                   "score": {
                     "type": "string",
-                    "faker": "random.number"
+                    "faker": "datatype.number"
                   }
                 },
               },
