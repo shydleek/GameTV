@@ -26,8 +26,8 @@ class Statistics extends React.Component {
 
   render() {
    return <div>
-      <section className="main">
-      <div className="container">
+      <section className="main_s">
+      <div className="container_s">
         <div className="main__inner">
         <div className="main__stats">
         <div className="main__stream">
