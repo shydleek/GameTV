@@ -142,3 +142,81 @@ font-size: 24px;
 line-height: 28px;
 color: #929A9E;
 }
+
+/*matches*/
+.main__schedule{
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 450px;
+}
+.main__stats{
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 450px;
+  margin-left: 600px;
+  margin-top: -103px;
+}
+.container_s {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+.main__schedule__title{
+  margin-bottom: 15px;
+}
+.main__schedule__title{
+  margin-bottom: 15px;
+}
+.main__schedule__title-link{
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 35px;
+  color: #929A9E;
+}
+.main__schedule__text {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  color: #929A9E;
+}
+.main__stream__title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: #929A9E;
+  padding-bottom: 20px;
+  margin-top: -916px;
+  margin-left: 250px;
+}
+.main__stream-video {
+  height: 350px;
+  background-color: #fff;
+  margin-bottom: 50px;
+  width: 500px;
+  margin-left: 550px;
+}
+.main__statistics__team1 {
+  max-width: 200px;
+}
+.main__statistics__team2 {
+  max-width: 200px;
+  margin-left: 220px;
+  margin-top: -205px;
+}
+.players {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.player {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  color: #929A9E;
+}
+.main__statistics__title-link {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 35px;
+  color: #929A9E;
+  margin-bottom: 10px;
+}
