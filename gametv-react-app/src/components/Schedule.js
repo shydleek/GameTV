@@ -26,15 +26,31 @@ class Schedule extends React.Component {
 
   render() {
     return <div>
-      <h2>You're on matches(schedule)</h2>
-      {this.state.events.map(
-          (event) =>
-          <div>
-            <h3>{event.team1} - {event.team2}</h3>
-            <p><span>Score: {event.score}</span></p>
-            <p><span>Tornament: {event.tournament}</span></p>
-          </div>
-      )}
+      <section className="main">
+      <div className="container_s">
+        <div className="main__inner">
+        {this.state.events.map(
+            (event) =>
+            <div className="main__schedule">
+                  <h3 className="main__schedule__title">
+                      <a href="#" className="main__schedule__title-link">{event.team1} — {event.team2}</a>   
+                  </h3>
+                  <span className="main__schedule__text">
+                  Score: {event.score}
+                  </span>
+                  <br />
+                  <span className="main__schedule__text">
+                  Tornament: {event.tournament}
+                  </span>
+                  <br />
+                </div>
+        )}
+        <h2 className="main__stream__title">Live stream</h2>
+        <div className="main__stream-video"></div>
+        
+        </div>
+      </div>
+      </section>
     </div>
   }
 }
